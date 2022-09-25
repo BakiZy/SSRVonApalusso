@@ -1,0 +1,28 @@
+.control {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: bolder;
+  font-size: 1.5rem;
+  font-family: inherit;
+  color: #212529;
+  text-align: center;
+  border-radius: 2px;
+}
+
+.form-control {
+  border: 0;
+}
+
+.h1 {
+  text-align: center;
+  color: #212529;
+}
+
+.spinner {
+  height: 10rem;
+  width: 10rem;
+  display: flex;
+  justify-content: center;
+}
