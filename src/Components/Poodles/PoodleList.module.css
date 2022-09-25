@@ -1,0 +1,61 @@
+.cardProperty {
+  background-color: #212529;
+  border-radius: 1.5rem;
+  text-align: center;
+  box-sizing: border-box;
+  width: 30rem;
+  color: #ffe2ed;
+
+  margin-bottom: 2.5rem;
+  transition: transform 0.3s ease-in-out;
+  font-size: 1.5rem;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.26);
+}
+
+.imageProp {
+  border-radius: 1.5rem;
+  height: 30rem;
+  object-fit: cover;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.26);
+}
+
+@media only screen and (min-width: 768px) {
+  .cardProperty {
+    margin-left: 2rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .cardProperty {
+    width: 24rem;
+    font-size: 1.2rem;
+  }
+  .imageProp {
+    object-fit: cover;
+  }
+}
+
+.linkZ {
+  background-color: #5ee4d2;
+  border-radius: 1rem;
+  border-color: rgb(49, 67, 148);
+  color: black;
+  font-size: 1.5rem;
+  padding: 0.4rem;
+  text-decoration: none;
+}
+
+.linkZ:hover {
+  color: white;
+  background-color: rgba(45, 72, 192, 0.9);
+}
+
+.cardProperty:hover,
+.cardProperty:active {
+  transform: scale(1.05);
+}
+
+.buttonDiv {
+  display: flex;
+  justify-content: center;
+}

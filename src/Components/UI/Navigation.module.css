@@ -1,0 +1,40 @@
+.social {
+  width: 10rem;
+  justify-content: center;
+  color: #ffe2ed;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+}
+.span {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.navListMenu {
+  font: 5rem;
+}
+
+.navMain {
+  background-color: #212529;
+  margin-bottom: 2.5rem;
+}
+
+.mainMenu {
+  font-size: 2.3rem !important;
+  margin-right: 10rem !important;
+}
+
+@media only screen and (max-width: 600px) {
+  .navMain {
+    width: fit-content;
+  }
+  .mainMenu {
+    margin-left: 7rem !important;
+  }
+  .social {
+    text-align: center !important;
+    margin-left: 6rem;
+  }
+}
