@@ -49,29 +49,23 @@ const Navigation = () => {
         </Nav>
       </Container>
       <Nav className={styles.social}>
-        <Link href="tel:+381646149512">
-          <a>
-            <FaWhatsapp className={styles.faWhatsapp} size={40} />
-          </a>
-        </Link>
-        <Link
+        <a href="tel:+381646149512">
+          <FaWhatsapp className={styles.faWhatsapp} size={40} />
+        </a>
+        <a
           href="https://www.facebook.com/milos.petrov.10/photos_by"
           target="_blank"
           rel="noreferrer"
         >
-          <a>
-            <FaFacebook className={styles.faFacebook} size={40} />
-          </a>
-        </Link>
-        <Link
+          <FaFacebook className={styles.faFacebook} size={40} />
+        </a>
+        <a
           href="https://www.instagram.com/vonappalusso/"
           target="_blank"
           rel="noreferrer"
         >
-          <a>
-            <FaInstagram className={styles.faInstagram} size={40} />
-          </a>
-        </Link>
+          <FaInstagram className={styles.faInstagram} size={40} />
+        </a>
       </Nav>
     </Navbar>
   );
