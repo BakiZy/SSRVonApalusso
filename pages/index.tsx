@@ -69,7 +69,7 @@ export async function getStaticProps() {
   console.log(poodles);
   return {
     props: {
-      poodles: poodles,
+      poodles,
     },
   };
 }
