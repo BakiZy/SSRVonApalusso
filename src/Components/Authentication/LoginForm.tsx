@@ -3,7 +3,6 @@ import axios, { AxiosResponse } from "axios";
 import styles from "./LoginForm.module.css";
 import AuthContext from "../../Store/auth-context";
 import { ILoginResponse } from "../../Interfaces/IAuthModel";
-import { Button, Spinner } from "react-bootstrap";
 import { validEmail, validPassword } from "./Regex";
 import ErrorModal from "../UI/ErrorModal";
 import { useRouter } from "next/router";
@@ -117,11 +116,7 @@ const LoginForm = () => {
   };
 
   if (isLoading) {
-    return (
-      <Spinner animation="border" variant="info" className={styles.spinner}>
-        Load
-      </Spinner>
-    );
+    return <div>Load</div>;
   }
 
   const errorHandler = () => {
@@ -167,30 +162,28 @@ const LoginForm = () => {
           <br></br>
           <div className="col-md-12 text-center">
             {!isLoading && (
-              <Button
+              <button
                 type="submit"
-                variant="dark"
                 style={{
                   color: "#ffe2ed",
                   fontSize: "1.6rem",
                 }}
               >
                 {isLogin ? "Login" : "Create account"}
-              </Button>
+              </button>
             )}
             {isLoading && <div>Loading...</div>}
             <br />
-            <Button
+            <button
               type="button"
               onClick={switchLoginHandler}
-              variant="dark"
               style={{
                 color: "#ffe2ed",
                 fontSize: "1.6rem",
               }}
             >
               {isLogin ? "Create a new account" : "Login with existing account"}
-            </Button>
+            </button>
           </div>
         </form>
       </section>

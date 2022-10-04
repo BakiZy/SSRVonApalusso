@@ -2,10 +2,15 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-};
-
-module.exports = {
   images: {
-    domains: ["*"],
+    domains: [
+      "imgur.com",
+      "i.imgur.com",
+      "https://imgur.com",
+      "poodlesvonapalusso.xyz",
+      "poodlesvonapalusso.dog",
+    ],
   },
 };
+
+module.exports = nextConfig;

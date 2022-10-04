@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import AuthContext from "../../Store/auth-context";
 import axios from "axios";
 import classes from "./ProfileForm.module.css";
-import { Button, Spinner } from "react-bootstrap";
 import ErrorModal from "../UI/ErrorModal";
 
 const ProfileForm = () => {
@@ -85,11 +84,7 @@ const ProfileForm = () => {
   };
 
   if (isLoading) {
-    return (
-      <Spinner animation="border" variant="info" className={classes.spinner}>
-        Load
-      </Spinner>
-    );
+    return <div className={classes.spinner}>Load</div>;
   }
 
   const errorHandler = () => {
@@ -144,16 +139,8 @@ const ProfileForm = () => {
         </div>
         <br />
         <div className="col-md-12 text-center">
-          <Button type="submit" variant="dark" style={{ fontSize: "1.6rem" }}>
-            Change password
-          </Button>
-          <Button
-            onClick={logoutHandler}
-            variant="dark"
-            style={{ fontSize: "1.6rem" }}
-          >
-            Logout{" "}
-          </Button>
+          <button type="submit">Change password</button>
+          <button onClick={logoutHandler}>Logout </button>
         </div>
       </form>
     </>

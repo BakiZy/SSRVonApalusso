@@ -2,7 +2,6 @@ import React, { useState, useRef, useContext, useCallback } from "react";
 import axios, { AxiosResponse } from "axios";
 import AuthContext from "../../Store/auth-context";
 import styles from "./AdminReg.module.css";
-import { Button, Spinner } from "react-bootstrap";
 import { validEmail, validPassword } from "./Regex";
 import { useRouter } from "next/router";
 
@@ -58,11 +57,7 @@ const AdminReg: React.FC = () => {
   );
 
   if (loading) {
-    return (
-      <Spinner animation="border" variant="info">
-        Load
-      </Spinner>
-    );
+    return <div>Load</div>;
   }
   return (
     <section>
@@ -88,16 +83,15 @@ const AdminReg: React.FC = () => {
         </div>
         <br></br>
         <div className="col-md-12 text-center">
-          <Button
+          <button
             type="submit"
-            variant="dark"
             style={{
               color: "#ffe2ed",
               fontSize: "1.6rem",
             }}
           >
             Create account
-          </Button>
+          </button>
           <br />
         </div>
       </form>

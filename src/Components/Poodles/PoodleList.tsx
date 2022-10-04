@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import classes from "./PoodleList.module.css";
 import { PoodleListProps } from "../../Interfaces/IPoodleModel";
 import AuthContext from "../../Store/auth-context";
-import { Button } from "react-bootstrap";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -18,15 +17,18 @@ const PoodleList: React.FC<PoodleListProps> = (props) => {
           <section className={classes.container} key={poodle.id}>
             <div key={poodle.id} className={classes.cardProperty}>
               <Link href={`/poodles/${poodle.id}`}>
-                <Image
-                  src={poodle.imageUrl}
-                  className={classes.imageProp}
-                  alt={poodle.name}
-                />
+                <a>
+                  <Image
+                    src={poodle.imageUrl}
+                    className={classes.imageProp}
+                    alt={poodle.name}
+                    width={200}
+                    height={300}
+                    priority
+                  />
+                </a>
               </Link>
-
               <h2>{poodle.name}</h2>
-
               <p>Date of birth : {parseDate}</p>
               {authContext.isLoggedIn ? (
                 <p>Pedigree number: {poodle.pedigreeNumber}</p>
@@ -45,8 +47,7 @@ const PoodleList: React.FC<PoodleListProps> = (props) => {
             </div>
             <div className={classes.buttonDiv}>
               {authContext.isAdmin && (
-                <Button
-                  className="btn btn-danger"
+                <button
                   onClick={() => props.onRemove(poodle.id)}
                   style={{
                     borderRadius: "1rem",
@@ -57,7 +58,7 @@ const PoodleList: React.FC<PoodleListProps> = (props) => {
                   }}
                 >
                   Remove
-                </Button>
+                </button>
               )}
               {authContext.isAdmin && (
                 <Link

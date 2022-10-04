@@ -1,9 +1,10 @@
 import { PoodleModel, PoodleListProps } from "../src/Interfaces/IPoodleModel";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios, { AxiosResponse } from "axios";
 import styles from "index.module.css";
 import ErrorModal from "../src/Components/UI/ErrorModal";
 import PoodleList from "../src/Components/Poodles/PoodleList";
+import { GetStaticProps } from "next";
 
 const HomePage: React.FC<PoodleListProps> = ({ poodles }) => {
   const [poodleList, setPoodleList] = useState<PoodleModel[]>([]);
@@ -12,6 +13,25 @@ const HomePage: React.FC<PoodleListProps> = ({ poodles }) => {
     title: "",
     popup: false,
   });
+  poodles.map((x) => {
+    x.id,
+      x.name,
+      x.dateOfBirth,
+      x.geneticTests,
+      x.sex,
+      x.imagePedigreeUrl,
+      x.imageUrl,
+      x.pedigreeNumber,
+      x.poodleColorName,
+      x.poodleSizeName;
+  });
+
+  useEffect(() => {
+    const dataFetch = async () => {
+      setPoodleList(poodles);
+    };
+    dataFetch();
+  }, [poodles]);
 
   const onRemoveHandler = async (id: number) => {
     await axios
@@ -49,27 +69,16 @@ const HomePage: React.FC<PoodleListProps> = ({ poodles }) => {
 
 export default HomePage;
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const response = await axios.get<PoodleModel[]>(
     "https://poodlesvonapalusso.dog/api/poodles"
   );
-  const poodles = response.data;
-  poodles.map((x) => {
-    x.id,
-      x.name,
-      x.dateOfBirth,
-      x.geneticTests,
-      x.sex,
-      x.imagePedigreeUrl,
-      x.imageUrl,
-      x.pedigreeNumber,
-      x.poodleColorName,
-      x.poodleSizeName;
-  });
-  console.log(poodles);
+  const data = response.data;
+
   return {
     props: {
-      poodles,
+      poodles: data,
     },
+    revalidate: 300,
   };
-}
+};

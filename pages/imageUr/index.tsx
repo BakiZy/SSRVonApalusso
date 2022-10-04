@@ -2,7 +2,6 @@ import React, { useContext, useRef } from "react";
 import axios, { AxiosResponse } from "axios";
 import AuthContext from "../../src/Store/auth-context";
 import styles from "./ImageUr.module.css";
-import { Button } from "react-bootstrap";
 
 const ImagePage: React.FC = () => {
   const authCtx = useContext(AuthContext);
@@ -54,9 +53,9 @@ const ImagePage: React.FC = () => {
           />
         </div>
         <br></br>
-        <Button type="submit" variant="dark" style={{ fontSize: "1.6rem" }}>
+        <button type="submit" style={{ fontSize: "1.6rem" }}>
           Add image
-        </Button>
+        </button>
       </form>
     </div>
   );

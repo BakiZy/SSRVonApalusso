@@ -42,6 +42,7 @@ const ImageSlider: React.FC<ISliderProps> = (props) => {
                   className={classes.sliderImage}
                   width={300}
                   height={300}
+                  objectFit="cover"
                   priority
                 />
               </>

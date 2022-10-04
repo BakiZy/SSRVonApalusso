@@ -2,7 +2,6 @@ import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import AuthContext from "../../src/Store/auth-context";
 import { IUserModel } from "../../src/Interfaces/IAuthModel";
-import { Alert, Table, Button, Spinner } from "react-bootstrap";
 import AdminReg from "../../src/Components/Authentication/AdminReg";
 
 //import { validEmail, validPassword } from "../components/Authentication/Regex";
@@ -86,19 +85,11 @@ const AdminPage: React.FC = () => {
   }, [token]);
 
   if (!authContext.isAdmin) {
-    return (
-      <Alert dismissible variant="danger">
-        Not Found
-      </Alert>
-    );
+    return <div>Not Found</div>;
   }
 
   if (loading) {
-    return (
-      <Spinner animation="border" variant="info">
-        Load
-      </Spinner>
-    );
+    return <div>Load</div>;
   }
 
   return (
@@ -106,7 +97,7 @@ const AdminPage: React.FC = () => {
       <AdminReg />
       <br></br>
       <h1>List of users</h1>
-      <Table variant="dark">
+      <table>
         <thead>
           <tr>
             <th>Username </th>
@@ -122,16 +113,14 @@ const AdminPage: React.FC = () => {
               <td>{user.email}</td>
               <td>{user.id}</td>
               <td>
-                <Button variant="danger" onClick={() => removeHandler(user.id)}>
-                  Delete
-                </Button>
+                <button onClick={() => removeHandler(user.id)}>Delete</button>
               </td>
             </tr>
           ))}
         </tbody>
-      </Table>
+      </table>
       <h1>List of admins</h1>
-      <Table variant="dark">
+      <table>
         <thead>
           <tr>
             <th>Username </th>
@@ -147,17 +136,12 @@ const AdminPage: React.FC = () => {
               <td>{admin.email}</td>
               <td>{admin.id}</td>
               <td>
-                <Button
-                  variant="danger"
-                  onClick={() => removeHandler(admin.id)}
-                >
-                  Delete
-                </Button>
+                <button onClick={() => removeHandler(admin.id)}>Delete</button>
               </td>
             </tr>
           ))}
         </tbody>
-      </Table>
+      </table>
     </>
   );
 };
